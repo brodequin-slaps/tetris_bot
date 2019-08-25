@@ -53,7 +53,7 @@ Game::Game()
     }
 
 	//init channel ptr
-	findBestBoard_Rec_Channels = make_unique<FindBestBoard_Rec_Channels>(12);
+	findBestBoard_Rec_Channels = make_unique<FindBestBoard_Rec_Channels>(NUM_WORKERS);
 
     //init queue
     random_device device;

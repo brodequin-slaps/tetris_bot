@@ -20,5 +20,4 @@ public:
     std::vector<TetriminoRotation> tetriminoRotations;
 
     Tetrimino(const std::string&, int);
-    void Print() const;
 };

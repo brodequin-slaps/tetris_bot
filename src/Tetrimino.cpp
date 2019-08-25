@@ -43,24 +43,3 @@ Tetrimino::Tetrimino(const string& name, int numRotations)
         file.close();
 	}
 }
-
-void Tetrimino::Print() const
-{
-    cout << name << "-----------------" << endl;
-    for(TetriminoRotation tr : tetriminoRotations)
-    {
-        cout << "*width: " << tr.width << " ; height: " << tr.height << "*" << endl;
-
-        for(WidthInt line : tr.piece)
-        {
-            for(int i = 0; i < tr.width; i++)
-            {
-                cout << ((line >> (MAX_WIDTH - 1 - i)) & 1)? "1 " : "0 "; 
-            }
-            cout << endl;
-        }
-
-        cout << "***" << endl << endl;
-    }
-    cout << "-----------------" << endl;
-}

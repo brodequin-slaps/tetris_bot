@@ -13,16 +13,18 @@ typedef std::pair<Board, Tetrimino> Context;
 
 class Board
 {    
+    void SetScore(const int& destroyedLines, const int& dropHeight, const int& tetriminoRotationHeight);
+    double CalculateScore(const int& destroyedLines, const int& dropHeight, const int& tetriminoRotationHeight) const;
+    double BestSubScore(const int& currentDepth, const int& maxDepth, const std::deque<int>& tetriminoQueue) const;
+    int DropTetriminoRotation(const TetriminoRotation& tr);
+    int DestroyLines(const int& dropHeight, const int& trHeight);
+
 public:
     double score;
     board_t boardArr;
 
     Board();
     void Reset();
-    void SetScore(const int& destroyedLines, const int& dropHeight, const int& tetriminoRotationHeight);
-    double CalculateScore(const int& destroyedLines, const int& dropHeight, const int& tetriminoRotationHeight) const;
-    int DropTetriminoRotation(const TetriminoRotation& tr);
-    int DestroyLines(const int& dropHeight, const int& trHeight);
 
     //drops the tetrimino and invoke scopeCalculator, which will modify the best value
     //scopeCalculator must be a lambda which captures the best value to modify
@@ -41,8 +43,6 @@ public:
     void ResursiveScoreCalculator(const int& destroyedLines, const int& dropHeight, const TetriminoRotation& tr, Board& best, const std::deque<int>& tetriminoQueue) const;
     //nested score calculator called if recursion level > 1
     void SubScoreCalculator(const int& destroyedLines, const int& dropHeight, const TetriminoRotation& tr, double& best, const int& currentDepth, const int& maxDepth, const std::deque<int>& tetriminoQueue) const;
-    double BestSubScore(const int& currentDepth, const int& maxDepth, const std::deque<int>& tetriminoQueue) const;
-
     std::string Serialize() const;
     void Print(int spaces = 10) const;
 

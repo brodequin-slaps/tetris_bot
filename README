@@ -1,0 +1,9 @@
+To make it work:
+chmod +x build.sh
+./build.sh
+cd Release
+./tetrimino_bot
+
+To see individual boards after each tetrimino is placed:
+comment line 28 in Game.cpp
+uncomment lines 30 to 32 in Game.cpp

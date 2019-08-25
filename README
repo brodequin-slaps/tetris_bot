@@ -1,4 +1,7 @@
 To make it work:
+First you may need to download Boost libraries from official repos from your distro
+because it uses boost::hash and boost::fibers
+
 chmod +x build.sh
 ./build.sh
 cd Release
